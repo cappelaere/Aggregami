@@ -1,0 +1,38 @@
+{{#if user_profile }}
+		var name 		= "{{user_profile.name}}";
+		var thumbnail 	= "{{user_profile.thumbnail_url}}";
+		var ulocation 	= "{{user_profile.location}}";
+		
+		$('#login').html("<a href='/profile'>"+name+"</a>");
+		
+		// update main panel
+		var hero = "<table><tr><td><img src="+thumbnail+"/></td>"
+		hero += "<td><h2>"+name+"</h2></td></tr>"
+		hero += "<tr><td></td><td>"+ulocation+"</td></tr>"
+		hero += "</table>"
+		
+		$('#hero-unit').html(hero);
+		
+		// update sub-panels based on user selection'
+		{{#if user_profile.selected}}
+			{{#if user_profile.selected.FitBit }}
+				var str = "<div class='span4'>\n";
+				str += "<h2>FitBit Activities</h2>\n";
+				str += "<div id='FitBit'>This is FitBit Content</div>\n";
+				str += "</div>\n";
+				$('#row-fluid').append(str);
+				
+				$.ajax({ 
+						url: '/svc/FitBitAll/activities', 
+						dataType: 'json',
+						success: function(data) {
+							console.log("Fitbit Activities %j", data);
+							$('#FitBit').html(JSON.stringify(data);
+						}
+					});
+			{{/if}}
+		{{/if}}
+		
+{{else}}
+		$('#login').html("<a href='/login'>Log in</a> • <a href='/signup'>Sign up</a>");		
+{{/if}}

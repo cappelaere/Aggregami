@@ -1,0 +1,51 @@
+<table>
+	<tr><td><Label>Facebook</Label></td>
+{{#if services.facebook }}
+	<td><a href='/svc/del/facebook' class='btn btn-primary'>Remove</a></td></tr>
+{{else}}
+	<td></td><td><a href='/svc/add/facebook' class='btn btn-primary'>Add</a></td></tr>
+{{/if}}
+
+	<tr><td><Label>FitBit</Label></td>
+{{#if services.fitbit }}
+	<td><a href='/svc/del/fitbit' class='btn btn-primary'>Remove</a></td></tr>
+{{else}}
+	<td></td><td><a href='/svc/add/fitbit' class='btn btn-primary'>Add</a></td></tr>
+{{/if}}
+
+	<tr><td><Label>Flickr</Label></td>
+{{#if services.flickr }}
+	<td><a href='/svc/del/flickr' class='btn btn-primary'>Remove</a></td></tr>
+{{else}}
+	<td></td><td><a href='/svc/add/flickr' class='btn btn-primary'>Add</a></td></tr>
+{{/if}}
+
+	<tr><td><Label>Instagram</Label></td>
+{{#if services.instagram }}
+	<td><a href='/svc/del/instagram' class='btn btn-primary'>Remove</a></td></tr>
+{{else}}
+	<td></td><td><a href='/svc/add/instagram' class='btn btn-primary'>Add</a></td></tr>
+{{/if}}
+
+	<tr><td><Label>RunKeeper</Label></td>
+{{#if services.runkeeper }}
+	<td><a href='/svc/del/runkeeper' class='btn btn-primary'>Remove</a></td></tr>
+{{else}}
+	<td></td><td><a href='/svc/add/runkeeper' class='btn btn-primary'>Add</a></td></tr>
+{{/if}}
+
+	<tr><td><Label>Twitter</Label></td>
+{{#if services.twitter }}
+	<td><a href='/svc/del/twitter' class='btn btn-primary'>Remove</a></td></tr>
+{{else}}
+	<td></td><td><a href='/svc/add/twitter' class='btn btn-primary'>Add</a></td></tr>
+{{/if}}
+
+	<tr><td><Label>YouTube</Label></td>
+{{#if services.youtube }}
+	<td><a href='/svc/add/youtube' class='btn btn-primary'>Remove</a></td></tr>
+{{else}}
+	<td></td><td><a href='/svc/del/youtube' class='btn btn-primary'>Add</a></td></tr>
+{{/if}}
+
+</table>

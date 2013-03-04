@@ -1,0 +1,28 @@
+
+<form action='/teams/invite' method='post'>
+	<label>From</label><input type='text' class="span3" name='from' value='{{profile.email}}' />
+	<label>Email Address</label><input type='text' class="span3" name='email' required />
+	<label>Subject:</label><input type='text' class='span3' name='subject' value='{{config.application}} Invite' />
+	<label>Invite Message</label><textarea class="input-xxlarge" rows='20' name='description'>
+<pre>
+Hi, 
+
+I would like to invite you to my team: 
+	{{team.name}}, {{data.team.location}}
+	{{team.description}}
+		
+If you join, you will be sharing your data with me and the rest of the team on 
+&lt;a href='www.aggregfit.com'&gt;AggregFit.com&lt;/a&gt;
+	
+Click on this link: &lt;a href='{{config.hostBaseUrl}}/teams/join/{{team.ref}}'&gt;here&lt;a&gt;
+	
+Thanks,
+	
+{{profile.name}}	
+</pre>
+
+	</textarea>
+	<br/>
+	<button type='submit' class='btn btn-primary' name='submit' value='1'>Submit</button> &nbsp;
+	<button type='submit' class='btn' name='cancel' value='1'>Cancel</button>
+</form>

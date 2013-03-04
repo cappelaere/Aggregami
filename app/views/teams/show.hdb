@@ -1,0 +1,9 @@
+<table>
+	<tr><td><b>Logo:</b></td><td>{{ team.logo }}</td></tr>
+	<tr><td><b>Name:</b></td><td>{{ team.name }}</td></tr>
+	<tr><td><b>Location:</b></td><td>{{ team.location }}</td></tr>
+	<tr><td><b>Description:</b></td><td>{{ team.description }}</td></tr>
+	<tr><td><b>Created at:</b></td><td>{{ team.created_at }}</td></tr>
+	<tr><td><b>Updated at:</b></td><td>{{ team.updated_at }}</td></tr>
+	<tr><td><b>Owner:</b></td><td>{{ team.owner }}</td></tr>
+</table>

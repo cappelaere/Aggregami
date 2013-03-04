@@ -1,0 +1,34 @@
+{
+	"dependencies": {
+		"async": "0.2.5", 
+		"connect-redis": "1.4.5", 
+		"consolidate": "0.8.0", 
+		"cookies": "0.3.6", 
+		"ejs": "0.8.3",
+		"express": "3.1.0",
+		"express-partials": "0.0.6",
+		"express-singly": "0.3.1",
+		"eyes": "0.1.8",
+		"handlebars": "1.0.10",
+		'moment': "2.0.0",
+		"nib":"0.9.1",
+		"qs": "0.5.3", 
+		"redis": "0.8.2",
+		"request": "2.14.0",
+		"sendgrid": "0.2.5",
+		"stylus": "0.32.0",
+		"uglify-js": "2.2.5"
+	}
+	"version": "0.1.0", 
+    "name": "aggrefit", 
+    "scripts": {
+        "start": "node server.js"
+    }, 
+    "author": {
+        "name": "Patrice G. Cappelaere", 
+        "email": "pat@cappelaere.com"
+    },
+ 	"engines": {
+    	"node": ">= 0.8.6"
+  	}
+}

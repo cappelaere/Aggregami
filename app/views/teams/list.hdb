@@ -1,0 +1,18 @@
+<ul>
+
+{{#each list }}
+	<li><a href='/teams/{{ref}}'>{{name}}, {{location}}</a> 
+	<a href='/teams/edit/{{ref}}'><i class="icon-edit"></i></a>
+	<a href='/teams/share/{{ref}}'><i class="icon-share"></i></a>
+	<a href='/teams/destroy/{{ref}}'><i class="icon-trash"></i></a>
+		<ul>
+		{{#each users }}
+			<li>
+				<img src='{{gravatar}}' width='32' /><a href='#'> {{name}} </a>
+			</li>
+		{{/each}}
+		</ul>
+	</li>
+	
+{{/each}}
+</ul>

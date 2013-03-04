@@ -1,0 +1,94 @@
+<script>
+{{#if user_profile }}
+		var name 		= "{{user_profile.name}}";
+		var thumbnail 	= "{{user_profile.thumbnail_url}}";
+		var ulocation 	= "{{user_profile.location}}";
+		
+		var str = "<div class='btn-group'>";
+			str += "<a class='btn btn-primary' href='#'><i class='icon-user icon-white'></i>&nbsp;{{user_profile.name}}&nbsp;</a>";
+			str += "<a class='btn btn-primary dropdown-toggle' data-toggle='dropdown' href='#'>";
+			str += "<span class='caret'></span></a>";
+			str += "<ul class='dropdown-menu'>";
+			str += "<li><a href='/profile'><i class='icon-pencil'></i> Edit Profile</a></li>";
+			str +="<li class='divider'></li>";
+			str += "<li><a href='/logout'><i class='i'></i> Log out</a></li>";
+			str += "</ul>";
+			str += "</div>";
+			
+		$('#login').html(str);
+		
+		// update main panel
+		var hero = "<table><tr><td><img src="+thumbnail+"/></td>"
+		hero += "<td><h2>"+name+"</h2></td></tr>"
+		hero += "<tr><td></td><td>"+ulocation+"</td></tr>"
+		hero += "</table>"
+		
+		$('#hero-unit').html(hero);
+		
+		// update sub-panels based on user selection'
+		{{#if user_profile.selected}}
+			{{#if user_profile.selected.FitBit }}
+				var str = "<div class='span4'>\n";
+				str += "<h2>FitBit</h2>\n";
+				str += "<div id='FitBit'>This is FitBit Content</div>\n";
+				str += "</div>\n";
+				$('#row-fluid').append(str);
+				
+				$.ajax({ 
+						url: '/svc/FitBit', 
+						dataType: 'json',
+						success: function(data) {
+							console.log("Fitbit %j", data);
+							var devices		= data.fitbit.devices;
+							var fat 		= data.fitbit.fat;
+							var activities 	= data.fitbit.activities;
+							var sleep 		= data.fitbit.sleep;
+							var weight 		= data.fitbit.weight;
+							
+							var str = "<table>";
+							str += "<tr><td><b>devices:</b></td><td>"+devices+"</td></tr>";
+							str += "<tr><td><b>activities:</b></td><td>"+activities+"</td></tr>";
+							str += "<tr><td><b>sleep:</b></td><td>"+sleep+"</td></tr>";
+							str += "<tr><td><b>weight:</b></td><td>"+weight+"</td></tr>";
+							str += "<tr><td><b>fat:</b></td><td>"+fat+"</td></tr>";
+							str += "</table>";
+							str += "<a class='btn' href='/svc/FitBitAll'>View details &raquo;</a>";
+							console.log("Fitbit %s", str);
+							
+							$('#FitBit').html(str);
+						}
+					});
+					
+				
+			{{/if}}
+			
+			{{#if user_profile.selected.Withings }}
+				var str = "<div class='span4'>\n";
+				str += "<h2>Withings</h2>\n";
+				str += "<div id='Withings'>This is Withings Content</div>\n";
+				str += "</div>\n";
+				$('#row-fluid').append(str);
+
+				$.ajax({ 
+						url: '/svc/Withings', 
+						dataType: 'json',
+						success: function(data) {
+						console.log("Withings %j", data);
+							var measures		= data.withings.measures;
+							var str = "<table>";
+							str += "<tr><td><b>measures:</b></td><td>"+measures+"</td></tr>";
+							str += "</table>";
+							str += "<a class='btn' href='/svc/WithingsAll'>View details &raquo;</a>";
+							console.log("Withings %s", str);
+							
+							$('#Withings').html(str);
+						}
+					});
+			{{/if}}
+			
+		{{/if}}
+		
+{{else}}
+		$('#login').html("<a href='/login'>Log in</a>");		
+{{/if}}
+</script>

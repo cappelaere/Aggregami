@@ -1,0 +1,11 @@
+Owner: {{ user.name }}
+<br/>
+<br/>
+<form action='/teams' method='post'>
+	<label>Team Name</label><input type='text' class="span3" name='name' />
+	<label>Location</label><input type='text' class="span3" name='location' />
+	<label>Description</label><textarea class="input-xlarge" rows='3' name='description' />
+	<label>Team Logo URL</label><input type='text' class="span3" name='url' />
+	<br/>
+	<button type='submit' class='btn'>Submit</button>
+</form>
